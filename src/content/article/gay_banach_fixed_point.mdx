@@ -1,0 +1,160 @@
+---
+name: "The Gay Banach Fixed-Point Theorum"
+title: "Gay Banach Fixed-Point Theorum"
+date: "2025-6-16"
+---
+
+# The Gay Banach Fixed-Point Theorum
+
+This system of equations.
+
+$$
+C_a + \frac{C_{ab} \cdot P_a}{P_a + P_b} + \frac{C_{ac} \cdot P_a}{P_a + P_c} + C_{abc} \cdot P_a=P_a \cdot C
+$$
+
+$$
+C_b + \frac{C_{ab} \cdot P_b}{P_a + P_b} + \frac{C_{bc} \cdot P_b}{P_b + P_c} + C_{abc} \cdot P_b=P_b \cdot C
+$$
+
+$$
+C_c + \frac{C_{ac} \cdot P_c}{P_a + P_c} + \frac{C_{ac} \cdot P_c}{P_a + P_c} + C_{abc} \cdot P_c=P_c \cdot C
+$$
+
+$$
+P_a + P_b + P_c = 1
+$$
+
+> Let $(X, d)$ be a non-empty complete metric space with a contraction mapping $T : X \to X$. Then $T$ admits a unique fixed-point $x^*$ in $X$ (i.e. $T(x^*) = x^*$). Furthermore, $x^*$ can be found as follows: start with an arbitrary element $x_0 \in X$ and define a sequence $(x_n)_{n\in\N}$ by $x_n = T(x_{n-1})$ for $n \ge 1$. Then $\lim_{x \to \infin} x_n = x^*$.
+
+So, this is a pretty dense definition. If you are cut from a more mathematically inclined cloth you might understand what is being said here, but for the rest of you, I will break it down into simpler terms.
+
+What is a *non-empty complete metric space*? Well a non-empty metric space is just some collection of things $X$ with a function $d(a,b)$ that gives you the distance  between $a$ and $b$ where $a, b \in X$. (The $\in$ means that something is in something else, so here $a$ and $b$ are in $X$). For this just think of a 3D coordinate system. $X$ would just be the set of all points in 3D space, and we could just define $d(a,b)$ to just be the distance between those points using the Pythagorean theorem.
+
+What does *complete* mean? Basically, it just means that if you have a sequence of points that are always getting closer to eachother in a specific way, there is a point they are always getting closer to. This way, specifically, is that you can choose some distance, call it $\epsilon$, and for however small of an $\epsilon$ you choose you know you can choose a point in that sequence where all the points after it are at most $\epsilon$ away from eachother.
+
+This might seem stupid. "*Of course* if you can choose any arbitrarily small distance for points in a sequence to be from eachother they have to be getting closer to something!" you might think. But you would unfortunately be wrong!
+
+Imagine if you took the 3D space you had before, and you have a spiral of points getting sucked to the origin. (In my mind there's like a black hole there or something.) Now, in this imaginary space, lets say since the origin is a black hole, it isn't actually part of our 3D space. Here, there is no point in *our new space* that the points are all getting closer to, because the origin no longer exits! Saying the space is *complete* means that this sort of thing *is not allowed*
+
+So in that sense, another way of thinking about a complete space is that there are no spots you can get infinitely close to but never get to in it.
+
+Luckly for us, our usual 3D space is complete, and since we already know it is a metric space and it has stuff in it, **our usual 3D space is a non-empty complete metric space**.
+
+From now on, we are going to stick with $X$ as our usual 3D space with a regular (Cartesian) 3D coordiante system. 
+
+So then the next question is, "What the heck is a contraction mapping?" A contraction mapping is some function, in this case $T$, that takes an input from $X$ and gives an output in $X$. It also has the special property that if you apply $T$ to two different points in your space, it will bring them closer together. 
+
+In fancy math terms, 
+
+> For all $a, b \in X$, $d(T(a), T(b)) \le k\cdot d(a,b)$ where $k$ is some constant number and $0 \le k \lt 1$.
+
+A very simple example in our 3D space would be the function
+
+$$T((x,y,z)) = \left(\frac{x}{2},\frac{y}{2},\frac{z}{2}\right)$$ 
+
+Hopefully it is obvious that this brings points closer together. With a little work we can see that our $k = \frac{1}{2}$.
+
+A more complex example would be
+
+$$T((x,y,z)) = \left(\frac{x + 1}{3}, 0.9z, y\right)$$
+
+See if you can figure out what $k$ is for this one.
+
+## The fruits of this labor
+
+Now that we have both a non-empty complete metric space $X$ a contraction mapping $T$ on it, we can exercise the final part of the theorum.
+
+> ... Then $T$ admits a unique fixed-point $x^*$ in $X$ (i.e. $T(x^*) = x^*$). Furthermore, $x^*$ can be found as follows: start with an arbitrary element $x_0 \in X$ and define a sequence $(x_n)_{n\in\N}$ by $x_n = T(x_{n-1})$ for $n \ge 1$. Then $\lim_{x \to \infin} x_n = x^*$.
+
+The first part of that just means that there is *some* point in our 3D space $x^*$ where applying our function to it doesn't change our point at all. For our first example of a contraction mapping that point is $x^* = (0,0,0)$ and for our second example it is $\left(\frac{1}{2}, 0,0\right)$. (Check to make sure these work yourself.)
+
+The last part of that is the truly incredible part. It means that we can choose *any point in our 3D space*, and if we repeatedly apply $T$ to it, we will eventually find $x^*$.
+
+## Using this to calculate gayness
+
+So, now if we look back at the first of our original equations
+
+$$
+C_a + \frac{C_{ab} \cdot P_a}{P_a + P_b} + \frac{C_{ac} \cdot P_a}{P_a + P_c} + C_{abc} \cdot P_a=P_a \cdot C
+$$
+
+
+we can rewrite it by dividing by $C$ to be
+
+$$
+\frac{C_a}{C} + \frac{C_{ab}}{C} \cdot \frac{P_a}{P_a + P_b} + \frac{C_{ac}}{C} \cdot \frac{P_a}{P_a + P_c} + \frac{C_{abc}}{C} \cdot P_a=P_a
+$$
+
+For simplicity, lets say $\mu_a = \frac{C_a}{C}$, $\mu_{ab} = \frac{C_{ab}}{C}$ and so on. This is just to make our equations look nicer. Note, because $C_a + C_b + \cdots + C_{abc} = C$, this means that $\mu_a + \mu_b + \cdots + \mu_{abc} = 1$. Also, for all $\mu$, its true that $0 \le \mu \le 1$.
+
+Now we have
+
+$$
+\mu_a + \mu_{ab} \cdot \frac{P_a}{P_a + P_b} + \mu_{ac} \cdot \frac{P_a}{P_a + P_c} + \mu_{abc} \cdot P_a=P_a
+$$
+
+we just say that $x = P_a$ to make this super clear, we can write
+
+$$
+f(x) = \mu_a + \mu_{ab} \cdot \frac{x}{x + P_b} + \mu_{ac} \cdot \frac{x}{x + P_c} + \mu_{abc} \cdot x
+$$
+
+Now we are going to try to show that this function $f(x)$ is itself a contraction map (at least for $0 \le x \le 1$, since we know that already.)
+
+Theres a few things we can say about this function pretty quickly. If we give it some input $a \in [0,1]$ ($a$ is in the range $[0,1]$) then we know that its output $f(a) \in [0,1]$.
+
+Look at terms $2$ and $3$. Note that for all $x, b \ge 0$
+
+$$\frac{x}{x + b} \le 1$$
+
+because the denominator is always larger than the numerator.
+
+If we look back at $f(x)$ we can reinterpret it as the weighted average of the terms
+
+$$\left[1, \frac{x}{x + P_b}, \frac{x}{x + P_c}, x, 0\right]$$
+
+with weights
+
+$$\left[\mu_a, \mu_{ab}, \mu_{ac}, \mu_{abc}, 1-(\mu_a + \mu_{ab} + \mu_{ac} + \mu_{abc})\right]$$
+
+Clearly the weights sum to 1, and all the weights must be non-negative, as we know all $\mu_?$ to be non-negative and we know the sum of all $\mu_?$ to be $1$, so a subsum of $\mu_?$ could not be greater than $1$.
+
+A property of this is since we are averaging the terms, and we know that they are all clearly in $[0,1]$ that the average is in $[0,1]$ meaning $f(x) \in [0,1]$.
+
+Now, take this theorum that I just happen to know to be true.
+
+> If you have a function $f(x)$ where $\left|f'(x)\right| < 1$ on some interval $I$, $f(x)$ is a contraction mapping on $I$.
+
+Also,
+
+> If you have a function $g(x)$ where $g'(x) \ge 0$ on some interval $I$, that means it is an increasing function on that interval, which means for $a, b \in I$, if $a \le b$ then $f(a) \le f(b)$
+
+Think about our $f(x)$ again. Its slope is clearly decreasing or constant, as $1$, $x$ and $0$ have constant slope while anything of form $\frac{x}{x + b}$ has decreasing slope. It is also clear that $f'(x)$ is never negative for similar reasons. Additionally, the maximum possible value for $f'(1)$ is $\frac{1}{4}$. I don't really want to prove these from scratch so here are some graphs that show these facts pretty conclusively.
+
+Lets do some small math real quick. Here $g(x)$ represents the amount a value $x$ would increase from calling $f$ on it.
+
+$$
+\begin{align*}
+g(x) & = f(x) - x &\\
+g'(x) & = f'(x) - 1 &\\
+0 & \le f'(x) - 1 & \text{assume }f'(x) >= 0\\
+g\prime(x) & \ge 0 & \\
+g(x) & \ge f(0) - 0 & \text{since } g(x) \text{ is increasing}\\
+g(x) & \ge 0 &
+\end{align*}
+$$
+
+The astounding result here is that either we are either
+
+1. in a zone in which $f$ is a contraction mapping ($f'(x) < 1 $) or
+2. in a zone in which calling $f$ on $x$ will cause it to increase.
+
+In case 2 since except for in very edge cases $f(x) \not = x$, its actually true that for $x \ge \epsilon$ where $\epsilon \gt 0$, there is some constant $\delta \gt 0$ where $g(x) \ge \delta$ meaning that repeatedly calling $f(x)$ on some value will eventually bring it into the zone where it is a contraction mapping.
+
+Now here are some other things I may prove at some point.
+
+We have now what I will call a safety zone for our $x$ AKA the zone on which it has a contraciton mapping. I will now start referring to $P_b$ as $y$ and $P_c$ as $z$. If $y$ or $z$ increases, this always increases the safety zone for our $x$. Now note, $\frac{x}{x + y} + \frac{y}{x + y} = 1$. From this we can actually develop something very interesting.
+
+Note that the safety zone will only get narrower for $x$ if $y$ or $z$ decrease. $y$ or $z$ decreasing means inherently from this relationship (since these being low are the only things that will cause a $z$ decrease past *linear causes*) we know that they will then kick $x$ up enough to at least neglect the effect of the shrinking safety zone.
+
+So, if you apply it to all of them at once what you see is that $x$ will still get to the safety zone in a finite amount of time. $x$ will stay in the zone with the contraction mapping. For reasons, that zone remains a contraction mapping in general.
