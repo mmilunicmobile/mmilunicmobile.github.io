@@ -3,6 +3,8 @@ import { createSignal } from 'solid-js';
 
 const quotes = [
   "\"The greatest glory in living lies not in never falling, but in rising every time we fall.\" - Nelson Mandela",
+  "\"My heart is in the work.\" - Andrew Carnegie",
+  "\"Gentlemen prefer bonds.\" - Andrew Mellon",
   "\"If you set your goals ridiculously high and it's a failure, you will fail above everyone else's success.\" - James Cameron",
   "\"The only way to do great work is to love what you do.\" - Steve Jobs",
   "\"The best way to predict the future is to create it.\" - Alan Kay",
@@ -12,6 +14,15 @@ const quotes = [
   "\"Success is not final, failure is not fatal: it is the courage to continue that counts.\" - Winston Churchill",
   "\"The pessimist sees difficulty in every opportunity. The optimist sees opportunity in every difficulty.\" - W. Clement Stone",
 ]
+
+const escapeHtml = unsafe => {
+  return unsafe
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+};
 
 const [index, setIndex] = createSignal(0);
 
@@ -35,7 +46,7 @@ const CodeQuote = (props, values) => {
   const quote = () => quotes[index() % quotes.length];
 
   return (
-    <code>{"<template shadowrootmode=\"open\"><div>\""}{quote()}{"\"</div></template>"}</code >
+    <code>{"<template shadowrootmode=\"open\"><div>\""}{escapeHtml(quote())}{"\"</div></template>"}</code >
   );
 };
 
