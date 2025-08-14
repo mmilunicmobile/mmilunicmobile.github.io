@@ -6,12 +6,12 @@ import { getCollection, getEntry } from "astro:content";
 const collection = await getCollection("article");
 
 const sortedCollection = collection.sort((a, b) => {
-	return a.data.date < b.data.date ? -1 : 1;
+	return a.data.date > b.data.date ? -1 : 1;
 });
 
 const my_websites = [
 	["Listr: A Sorting App", "https://mmilunicmobile.github.io/listr/"],
-	["bandquiz.mathuml.mooo.com", "http://bandquiz.mathuml.mooo.com"],
+	["bandquiz.mathuml.mooo.com (temporarily down)", "http://bandquiz.mathuml.mooo.com"],
 ];
 
 const other_websites = [
