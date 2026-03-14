@@ -14,7 +14,7 @@ export default defineConfig({
             destination: '/article/[slug]'
         }
     },
-    site: 'https://mathuml.mooo.com',
+    site: 'https://mmilunicmobile.github.io',
     integrations: [mdx({
         remarkPlugins: [remarkMath],
         rehypePlugins: [rehypeKatex]
