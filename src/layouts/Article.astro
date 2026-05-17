@@ -15,7 +15,7 @@ const {
     <nav class="navbar">
         {
             prev !== undefined ? (
-                <a href={`/article/${prev?.slug}`}>Last</a>
+                <a href={`/article/${prev?.id}`}>Last</a>
             ) : (
                 <span>Last</span>
             )
@@ -23,7 +23,7 @@ const {
         <a href="/">Home</a>
         {
             next !== undefined ? (
-                <a href={`/article/${next?.slug}`}>Next</a>
+                <a href={`/article/${next?.id}`}>Next</a>
             ) : (
                 <span>Next</span>
             )

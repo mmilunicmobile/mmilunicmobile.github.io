@@ -10,8 +10,14 @@ const sortedCollection = collection.sort((a, b) => {
 });
 
 const my_websites = [
-	["Listr: A Sorting App", "https://mmilunicmobile.github.io/listr/"]
+	["Listr: A Sorting App", "https://mmilunicmobile.github.io/listr/"],
+	["LED Display (Only works on CMU Networks)" /*, "https://mmilunicmobile.github.io/led-display/"*/],
 ];
+
+const group_websites = [
+	["AWAP Hackathon 2026", "https://awap.acmatcmu.com"],
+	["Autolab", "https://autolabproject.com"]
+]
 
 const other_websites = [
 	["falstad.com", "https://www.falstad.com/"],
@@ -37,7 +43,7 @@ for (let i = 0; i < sortedCollection.length; i++) {
 	title="Mathum"
 	description="Mathum is a collection of articles written about math programming and anything in between."
 >
-	<h1>This is my (dodgy) homepage!</h1>
+	<h1>Mathum</h1>
 	<p>
 		Who am I? Beats me. I kinda just like making stuff and was too lazy to
 		set up Hugo so I made my webpage this way. You could check out some of
@@ -52,13 +58,13 @@ for (let i = 0; i < sortedCollection.length; i++) {
 				const { name = "Article", date = "9999-99-99" } = entry.data;
 				return (
 					<li>
-						<a href={`/article/${entry.slug}`}>{name}</a>
+						<a href={`/article/${entry.id}`}>{name} ({date})</a>
 					</li>
 				);
 			})
 		}
 	</ul>
-	<h2>Websites I've made:</h2>
+	<h2>Things I've made:</h2>
 	<ul>
 		{
 			my_websites.map((entry) => {
@@ -71,7 +77,20 @@ for (let i = 0; i < sortedCollection.length; i++) {
 			})
 		}
 	</ul>
-	<h2>Cooler websites I haven't made:</h2>
+	<h2>Things I've helped make:</h2>
+	<ul>
+		{
+			group_websites.map((entry) => {
+				const [name, url] = entry;
+				return (
+					<li>
+						<a href={url}>{name}</a>
+					</li>
+				);
+			})
+		}
+	</ul>
+	<h2>Things I wish I made:</h2>
 	<ul>
 		{
 			other_websites.map((entry) => {
