@@ -1,0 +1,45 @@
+---
+name: "Polly Style: A Typst Case Study"
+title: "Polly Style"
+date: 2026-7-18
+---
+# Polly Style: A Typst Case Study
+
+2026-7-18
+
+---
+
+The previous semester, I had the wonderful opportunity to take [15-150](https://www.cs.cmu.edu/~15150/) at CMU, 
+an introductory course on functional programming. The course itself is taught in [Standard ML](https://smlhelp.github.io/book/), which as far as I understand is a language who's main use is being used as the 15-150 programming language. 
+
+One interesting property of 15-150 is that the homework assignments are about 50% writing code in SML and 50% writing proofs about your code or solving other problems. These assignments are required to be typeset, and are required to use SML code in the typesetting of the proofs.
+
+> "We require that you turn in your written homework assignments as a typeset PDF. 
+> LaTeX is one of the best ways to create such a PDF, although you may use whatever method you feel comfortable with."
+
+Now, having come into the semester having only really used LaTeX, I did the first few homework assignments in LaTeX.
+
+It was pretty miserable.
+
+They give a template that you can use for the homework assignments to make it easier to get started, but still, the LaTeX was starting to get to me
+
+> Example of latex formatting code in HW right now.
+
+Around this time, I had stumbled upon [Typst](https://typst.app), a typsettting language that aims to be a modern alternative to LaTeX. Some of my friends had been using it for a while in some of the proof heavy courses we had been taking together, and I tried it out in some of those. 
+
+I was impressed. 
+
+Typst has plenty to say for itself on its website, and I highly encourage you check it out on some assignment if you have the chance. Personally, I noticed I was taking a lot less time on my assignments, and the number of times I would get frustrated was decreasing.
+
+Some features I really liked were:
+* It renders very fast.
+* The names of commands/symbols are very intuitive.
+* It is batteries included.
+* It is a full blown programming language.
+
+I'm going to focus on the last one, and specifically how helpful this can be in a case study.
+
+## Case Study
+
+As you could probably tell, the LaTeX I used for my homework assignments was pretty bad. One other thing about Typst is that it has a very simple syntax for simple markup, like bolding, italics, and underlining. I was wondering if I could design my own markup language for these proof blocks, that could be optimized for typsetting proofs that use SML code. 
+
